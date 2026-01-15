@@ -142,6 +142,7 @@ dev_lightweight: hello
 
 # Pull pre-built images for environments with restricted network access
 # This avoids building locally which requires access to external package repositories
+TAG ?= latest
 pull_prebuilt_images:
 	@echo "🥫 Pulling pre-built images from GitHub Container Registry..."
 	docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
