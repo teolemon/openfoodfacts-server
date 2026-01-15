@@ -1,0 +1,61 @@
+# Docker Compose override for using pre-built images from GitHub Container Registry
+# Use this in environments where building images locally is not possible
+# (e.g., restricted network, CI runners, coding agent workspaces)
+#
+# Usage: COMPOSE_FILE="docker-compose.yml;docker/prebuilt.yml" docker compose up -d
+#
+# This file provides minimal development features needed for coding agents
+# to verify changes without requiring a full local build.
+
+x-backend-conf: &backend-conf
+  # Use pre-built images - no local build needed
+  image: ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG:-latest}
+  volumes:
+    # mount local folder for code changes to be reflected
+    - ./:/opt/product-opener
+    # dynamic entrypoint
+    - ./docker/docker-entrypoint.sh:/docker-entrypoint.sh
+  extra_hosts:
+    - host.docker.internal=host-gateway
+    - auth.openfoodfacts.localhost=host-gateway
+    - world.openfoodfacts.localhost=127.0.0.1
+    - fr.openfoodfacts.localhost=127.0.0.1
+    - static.openfoodfacts.localhost=127.0.0.1
+    - ssl-api.openfoodfacts.localhost=127.0.0.1
+
+services:
+  backend: *backend-conf
+  incron: *backend-conf
+  redis-listener: *backend-conf
+  minion: *backend-conf
+
+  # Use pre-built frontend - provides static assets already compiled
+  frontend:
+    image: ghcr.io/openfoodfacts/openfoodfacts-server/frontend:${TAG:-latest}
+    volumes:
+      - ./html:/opt/product-opener/html/
+    networks:
+      default:
+        aliases:
+          - world.${PRODUCT_OPENER_DOMAIN:-openfoodfacts.localhost}
+          - static.${PRODUCT_OPENER_DOMAIN:-openfoodfacts.localhost}
+          - images.${PRODUCT_OPENER_DOMAIN:-openfoodfacts.localhost}
+          - fr.${PRODUCT_OPENER_DOMAIN:-openfoodfacts.localhost}
+          - ssl-api.${PRODUCT_OPENER_DOMAIN:-openfoodfacts.localhost}
+
+volumes:
+  product_images:
+  html_data:
+  other_servers:
+  products:
+  users:
+    name: ${PO_COMMON_PREFIX:-}po_users
+  orgs:
+    name: ${PO_COMMON_PREFIX:-}po_orgs
+  export_files:
+    name: ${PO_COMMON_PREFIX:-}po_export_files
+  podata:
+
+networks:
+  minion_db:
+    name: ${PO_COMMON_PREFIX:-}minion_db

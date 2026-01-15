@@ -140,6 +140,29 @@ dev_lightweight: hello
 	@echo "🥫 Access the site at: http://world.openfoodfacts.localhost/"
 	@echo "🥫 See docs/dev/how-to-run-for-coding-agents.md for more info."
 
+# Pull pre-built images for environments with restricted network access
+# This avoids building locally which requires access to external package repositories
+pull_prebuilt_images:
+	@echo "🥫 Pulling pre-built images from GitHub Container Registry..."
+	docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
+	docker pull ghcr.io/openfoodfacts/openfoodfacts-server/frontend:${TAG}
+	@echo "🥫 Pre-built images pulled successfully."
+
+# Docker compose command for pre-built images (no local build required)
+DOCKER_COMPOSE_PREBUILT=COMPOSE_FILE="docker-compose.yml;docker/prebuilt.yml" ${DOCKER_COMPOSE}
+
+# Lightweight setup using pre-built images (for restricted network environments)
+# Use this if 'make dev_lightweight' fails due to network restrictions
+dev_lightweight_prebuilt: hello pull_prebuilt_images create_folders
+	@echo "🥫 Starting lightweight development environment using pre-built images..."
+	@echo "🥫 This setup uses reduced memory (1GB MongoDB cache) and skips image downloads."
+	MONGODB_CACHE_SIZE=1 SKIP_SAMPLE_IMAGES=1 ${DOCKER_COMPOSE_PREBUILT} up -d
+	@echo "🥫 Waiting for services to start..."
+	sleep 30
+	@echo "🥫 Lightweight setup complete!"
+	@echo "🥫 Access the site at: http://world.openfoodfacts.localhost/"
+	@echo "🥫 See docs/dev/how-to-run-for-coding-agents.md for more info."
+
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 

@@ -12,6 +12,20 @@ make dev_lightweight
 # http://world.openfoodfacts.localhost/
 ```
 
+### For Restricted Network Environments
+
+If you're in an environment with restricted network access (e.g., some CI runners or sandboxed workspaces), you can use pre-built images instead of building from source:
+
+```bash
+# Pull pre-built images from GitHub Container Registry
+TAG=latest make pull_prebuilt_images
+
+# Start using pre-built images
+TAG=latest make dev_lightweight_prebuilt
+```
+
+**Note**: The `dev_lightweight` target builds images locally, which requires access to external package repositories. If the build fails due to network restrictions, use `dev_lightweight_prebuilt` instead.
+
 ## Memory Requirements
 
 ### Standard Development Setup (`make dev`)
@@ -30,6 +44,8 @@ make dev_lightweight
 |---------|--------------|-------------|
 | `make dev` | High (8GB+) | Full development setup with all features |
 | `make dev_lightweight` | Low (4GB) | Optimized for constrained environments |
+| `make dev_lightweight_prebuilt` | Low (4GB) | Uses pre-built images (for restricted networks) |
+| `make pull_prebuilt_images` | - | Pull pre-built images from GitHub Container Registry |
 | `make up` | Medium | Start existing containers |
 | `make down` | - | Stop containers |
 | `make status` | - | Check container status |
