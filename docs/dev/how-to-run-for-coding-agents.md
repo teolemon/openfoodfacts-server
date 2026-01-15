@@ -194,9 +194,22 @@ jobs:
           curl -f http://world.openfoodfacts.localhost/ || exit 1
           
       - name: Take screenshot
-        run: |
-          # Using playwright or similar tool
-          npx playwright screenshot http://world.openfoodfacts.localhost/ screenshot.png
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: |
+          npx playwright install chromium
+          node -e "
+            const { chromium } = require('playwright');
+            (async () => {
+              const browser = await chromium.launch();
+              const page = await browser.newPage();
+              await page.goto('http://world.openfoodfacts.localhost/');
+              await page.waitForLoadState('networkidle');
+              await page.screenshot({ path: 'screenshot.png', fullPage: true });
+              await browser.close();
+            })();
+          "
           
       - name: Upload screenshot
         uses: actions/upload-artifact@v4
@@ -211,14 +224,9 @@ jobs:
 
 2. **Allocate enough memory to Docker** - At least 4GB for lightweight, 8GB for full
 
-3. **Use `--jobs` for parallel make** - Speeds up initial setup:
-   ```bash
-   make dev_lightweight --jobs=4
-   ```
+3. **Cache Docker layers** - Subsequent builds will be faster
 
-4. **Cache Docker layers** - Subsequent builds will be faster
-
-5. **Skip image downloads** - If you don't need product images:
+4. **Skip image downloads** - If you don't need product images:
    ```bash
    export SKIP_SAMPLE_IMAGES=1
    ```
