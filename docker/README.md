@@ -22,6 +22,7 @@ See also [targets to run tests](../docs/dev/how-to-write-and-run-tests.md#runnin
 | Command                   | Description                                                                            | Notes                                                         |
 | ------------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | `make dev`                | Setup a fresh dev environment.                                                         | Run only once, then use the `up`, `down`, `restart` commands. |
+| `make dev_lightweight`    | Setup for memory-constrained environments (CI, coding agents).                         | Uses 1GB MongoDB cache, skips image downloads. See [coding agents guide](../docs/dev/how-to-run-for-coding-agents.md). |
 | `make build`              | build containers. Add `container=name` to build a specific container                   | args="--progress log" keeps all log in console (to debug failing build) |
 | `make up`                 | Start containers.                                                                      |                                                               |
 | `make down`               | Stop containers and keep the volumes.                                                  | Products and users data will be kept.                         |
