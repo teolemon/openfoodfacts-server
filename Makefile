@@ -126,6 +126,44 @@ dev_no_build: hello init_backend _up import_sample_data create_mongodb_indexes r
 	@echo "🥫 You should be able to access your local install of Open Food Facts at http://world.openfoodfacts.localhost/"
 	@echo "🥫 You have around 100 test products. Please run 'make import_prod_data' if you want a full production dump (~2M products)."
 
+#------------------#
+# Coding Agents    #
+#------------------#
+# Lightweight development setup for memory-constrained environments
+# (CI runners, Codespaces, coding agent workspaces)
+# Uses reduced MongoDB cache and skips image downloads
+dev_lightweight: hello
+	@echo "🥫 Starting lightweight development environment for coding agents..."
+	@echo "🥫 This setup uses reduced memory (1GB MongoDB cache) and skips image downloads."
+	MONGODB_CACHE_SIZE=1 SKIP_SAMPLE_IMAGES=1 $(MAKE) build init_backend _up import_sample_data create_mongodb_indexes refresh_product_tags
+	@echo "🥫 Lightweight setup complete!"
+	@echo "🥫 Access the site at: http://world.openfoodfacts.localhost/"
+	@echo "🥫 See docs/dev/how-to-run-for-coding-agents.md for more info."
+
+# Pull pre-built images for environments with restricted network access
+# This avoids building locally which requires access to external package repositories
+TAG ?= latest
+pull_prebuilt_images:
+	@echo "🥫 Pulling pre-built images from GitHub Container Registry..."
+	docker pull ghcr.io/openfoodfacts/openfoodfacts-server/backend:${TAG}
+	docker pull ghcr.io/openfoodfacts/openfoodfacts-server/frontend:${TAG}
+	@echo "🥫 Pre-built images pulled successfully."
+
+# Docker compose command for pre-built images (no local build required)
+DOCKER_COMPOSE_PREBUILT=COMPOSE_FILE="docker-compose.yml;docker/prebuilt.yml" ${DOCKER_COMPOSE}
+
+# Lightweight setup using pre-built images (for restricted network environments)
+# Use this if 'make dev_lightweight' fails due to network restrictions
+dev_lightweight_prebuilt: hello pull_prebuilt_images create_folders
+	@echo "🥫 Starting lightweight development environment using pre-built images..."
+	@echo "🥫 This setup uses reduced memory (1GB MongoDB cache) and skips image downloads."
+	MONGODB_CACHE_SIZE=1 SKIP_SAMPLE_IMAGES=1 ${DOCKER_COMPOSE_PREBUILT} up -d
+	@echo "🥫 Waiting for services to start..."
+	sleep 30
+	@echo "🥫 Lightweight setup complete!"
+	@echo "🥫 Access the site at: http://world.openfoodfacts.localhost/"
+	@echo "🥫 See docs/dev/how-to-run-for-coding-agents.md for more info."
+
 edit_etc_hosts:
 	@grep -qxF -- "${HOSTS}" /etc/hosts || echo "${HOSTS}" >> /etc/hosts
 

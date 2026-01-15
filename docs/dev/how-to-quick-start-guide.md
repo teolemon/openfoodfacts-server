@@ -9,6 +9,8 @@ First setup time estimate is `~10min` with the following specs:
 * `6` cores dedicated to Docker client
 * `12 MB/s` internet speed
 
+> **_NOTE:_** For coding agents or CI environments with limited memory (4GB), use `make dev_lightweight` instead of `make dev`. See [How to Run for Coding Agents](how-to-run-for-coding-agents.md) for details.
+
 ## 1. Prerequisites
 
 **Docker** is the easiest way to install the Open Food Facts server, play with it, and even modify the code.
