@@ -187,7 +187,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Enilconazole
 # ingredient/fr:imazalil has 23 products @2019-05-29
 
 en: frying
-es: fritto, frittura
+es: fritura
 fr: friture
 hr: prženje
 it: fritto, frittura
@@ -248,7 +248,7 @@ it: caramello al latte
 
 < en:preparation
 en: caramel chocolate preparation
-es: preparazione de chocolate al caramelo
+es: preparación de chocolate al caramelo
 hr: karamelno čokoladni pripravak
 it: preparazione di cioccolato al caramello
 
@@ -518,7 +518,7 @@ vegetarian:en: yes
 en: GMO-free soy lecithin, non-gmo soy lecithin
 bg: Соев лецитин без ГМО
 de: GVO-freies Sojalecithin, gentechnikfreies Soja-Lecithin, Soja-Lecithin gentechnikfrei
-es: lecitina de soja Ogm free, lecitine de soja Ogm free
+es: lecitina de soja sin OMG, lecitina de soja libre de OMG
 fi: GMO-vapaa soijalesitiini
 fr: lécithine de soja sans ogm
 hr: sojin lecitin bez GMO-a
@@ -3808,7 +3808,7 @@ it: rivestimento al latte
 # < en:compound
 < en:preparation
 en: milk preparation
-es: preparazione del leche
+es: preparación de leche
 hr: mliječni pripravak
 it: preparazione del latte
 
@@ -9809,7 +9809,7 @@ vegetarian:en: no
 < en:preparation
 en: meat preparation
 de: Fleischzubereitung
-es: preparazione della carne
+es: preparación de carne
 fi: lihavalmiste
 fr: préparation de viande
 hr: priprema mesa
@@ -16531,7 +16531,7 @@ hr: ne-gmo ulje repice
 < en:canola oil
 < en:preparation
 en: canola oil preparation
-es: preparazione de aceite de canola
+es: preparación de aceite de canola
 fi: rypsiöljyvalmiste
 hr: pripravak uljane repice
 it: preparazione di olio di canola
@@ -21076,7 +21076,7 @@ pl: naturalny aromat rumowy
 < en:preparation
 < en:rum flavouring
 en: rum flavouring preparation
-es: preparazione aromatizante al rum
+es: preparación aromatizante de ron
 hr: pripravak s aromom ruma
 it: preparazione aromatizzante al rum
 
@@ -31116,7 +31116,7 @@ it: jaggery
 
 < en:invert sugar
 en: invert sugar solution
-es: soluzione de azúcar invertito
+es: solución de azúcar invertido
 it: soluzione di zucchero invertito
 pl: roztwór cukru inwertowanego
 
@@ -37660,7 +37660,7 @@ vegetarian:en: yes
 < en:fruits preparation
 en: berry preparation
 de: Fruchtzubereitung aus roten Früchten
-es: preparazione de bacche
+es: preparación de bayas
 fi: marjavalmiste
 fr: préparation de fruits rouges
 hr: priprema bobičastog voća
@@ -37921,7 +37921,7 @@ fr: specialité de fruits pomme poire
 < en:preparation
 en: fruits preparation
 de: Fruchtzubereitung
-es: preparazione de frutta
+es: preparación de frutas
 fr: préparation de fruits
 hr: voćni pripravak, voćno punjenje, voćni nadjev miješano voće
 it: preparazione di frutta
@@ -41903,13 +41903,13 @@ it: estratto concentrato di limone
 
 < en:preparation
 en: lemon preparation
-es: preparazione al limón
+es: preparación de limón
 hr: pripravak od limuna
 it: preparazione al limone
 
 < en:preparation
 en: lemon cake honey preparation
-es: preparazione miel torta al limón
+es: preparación de miel y tarta de limón
 hr: pripravak limun kolač med
 it: preparazione miele torta al limone
 
@@ -43354,7 +43354,7 @@ it: pezzi e succo di ribes nero
 
 < en:preparation
 en: black currant cinnamon preparation
-es: preparazione de ribes nero y canela
+es: preparación de grosella negra y canela
 hr: pripravak crni ribiz cimet, emulzija crne ribizle
 it: preparazione di ribes nero e cannella
 
@@ -44033,7 +44033,7 @@ hr: sok višnje od koncentriranog soka, sok od višnje od koncentriranog soka
 
 < en:preparation
 en: cherry preparation
-es: preparazione de ciliegie
+es: preparación de cerezas
 hr: pripravak trešnja
 it: preparazione di ciliegie
 
@@ -44136,7 +44136,7 @@ fr: bigarreaux confits
 
 < en:cherry preparation
 en: sweet cherry preparation
-es: preparazione de ciliegie dolci
+es: preparación de cerezas dulces
 hr: pripravak višnja
 it: preparazione di ciliegie dolci
 
@@ -47320,7 +47320,7 @@ pl: nadzienie truskawkowe, wsad truskawkowy, nadzienie o smaku truskawkowym
 
 < en:preparation
 en: strawberry preparation
-es: preparazione de fragole
+es: preparación de fresas
 fr: préparation de fraise
 hr: pripravak od jagoda, pripravak od jagode
 it: preparazione di fragole
@@ -62206,7 +62206,7 @@ fr: pâte de praliné
 
 < en:preparation
 en: almond pistachio preparation
-es: preparazione de mandorle y pistacchi
+es: preparación de almendras y pistachos
 hr: pripravak badem pistacija
 it: preparazione di mandorle e pistacchi
 
@@ -70218,7 +70218,7 @@ it: luppoli lavorati
 < en:hops
 < en:preparation
 en: hop preparation
-es: preparazione del luppolo
+es: preparación de lúpulo
 hr: pripravak od hmelja
 it: preparazione del luppolo
 
@@ -85045,7 +85045,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Coffee
 < en:coffee
 < en:preparation
 en: coffee preparation
-es: preparazione del café
+es: preparación de café
 hr: pripravak kave
 it: preparazione del caffè
 
@@ -89005,7 +89005,7 @@ wikipedia:en: https://en.wikipedia.org/wiki/Food_browning
 # the word preparation - like berry preparation, for example - also correspond to previous definition of compound
 en: preparation
 da: præparat
-es: preparazione
+es: preparación
 it: preparazione
 sv: beredning
 
@@ -91102,7 +91102,7 @@ it: pasta al gusto di biscotto
 < en:biscuit
 < en:preparation
 en: biscuit preparation
-es: preparazione dei biscotti
+es: preparación de galletas
 hr: pripravak od keksa, smjesa za biskvit, smjesa za tamni biskvit
 it: preparazione dei biscotti
 
@@ -93320,7 +93320,7 @@ ciqual_food_name:fr: Panna cotta, rayon frais
 
 < en:preparation
 en: zuppa inglese flavor preparation
-es: preparazione gusto Zuppa inglese
+es: preparación con sabor a zuppa inglese
 hr: pasta okusa deserta zuppa inglese
 it: preparazione gusto Zuppa inglese
 

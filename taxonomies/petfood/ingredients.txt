@@ -36,6 +36,7 @@ en: Salmon Oil
 da: Lakseolie
 de: Lachsöl
 el: Έλαιο σολομού
+es: Aceite de salmón
 et: Lõheõli
 fi: Lohiöljy
 fr: Huile de saumon
@@ -52,6 +53,7 @@ sv: Laxolja
 # < en:crustacean
 en: krill
 xx: krill
+es: kril
 et: Krilli
 fi: Krilli
 hr: krila
@@ -65,6 +67,7 @@ en: Meat and animal derivatives
 da: Kød og dyriske biprodukter
 de: Fleisch und tierische Nebenerzeugnisse
 el: Κρέας και παράγωγα ζώων
+es: Carne y subproductos de origen animal
 et: Liha ja loomsete toiduainete saadused
 fi: Liha ja eläinperäiset jalosteet
 fr: Viande et sous-produits animaux
@@ -83,6 +86,7 @@ en: Derivatives of vegetable origin
 da: Planteprodukter
 de: Pflanzliche Nebenerzeugnisse
 el: Παράγωγα φυτικής προέλευσης
+es: Subproductos de origen vegetal
 et: Taimsete päritolu saadused
 fi: Kasviperäiset jalosteet
 fr: Sous-produits d'origine végétale
